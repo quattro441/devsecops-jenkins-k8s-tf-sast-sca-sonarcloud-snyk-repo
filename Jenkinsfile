@@ -11,11 +11,13 @@ pipeline {
 			}
     }
 */	   
+/*    THIS does not work either!!
 	    stage('CompileandRunSonarAnalysis') {
             steps {	
 		sh 'mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=quattrosec_buggywebapp -Dsonar.organization=quattrosec -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=6b0defa2e7880e6b125cb848dfe9ff3917a5d1f0'
 			}
-    }   
+    }
+*/
 	stage('RunSCAAnalysisUsingSnyk') {
             steps {		
 				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
